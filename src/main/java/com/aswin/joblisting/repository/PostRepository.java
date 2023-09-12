@@ -1,4 +1,4 @@
-package com.aswin.joblisting;
+package com.aswin.joblisting.repository;
 
 import com.aswin.joblisting.model.Post;
 import org.springframework.data.mongodb.repository.MongoRepository;
