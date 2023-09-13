@@ -1,6 +1,5 @@
 package com.aswin.joblisting.controller;
 
-
 import com.aswin.joblisting.repository.PostRepository;
 import com.aswin.joblisting.model.Post;
 import com.aswin.joblisting.repository.SearchRepository;
@@ -13,6 +12,7 @@ import java.io.IOException;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:3000")
 public class PostController {
     @Autowired
     PostRepository repo;
@@ -24,7 +24,8 @@ public class PostController {
         response.sendRedirect("swagger-ui.html");
     }
 
-    @GetMapping("/posts")
+    @GetMapping("/allPosts")
+    @CrossOrigin
     public List<Post> getAllPosts()
     {
         return repo.findAll();
@@ -37,6 +38,7 @@ public class PostController {
     }
 
     @GetMapping("/posts/{text}")
+    @CrossOrigin
     public List<Post> search(@PathVariable String text)
     {
         return srepo.findByText(text);
